@@ -7,7 +7,4 @@ class TestMeteoalarm < Minitest::Test
     refute_nil ::Meteoalarm::VERSION
   end
 
-  def test_it_does_something_useful
-    assert false
-  end
 end

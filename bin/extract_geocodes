@@ -1,0 +1,67 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require 'json'
+
+mapping = { 'AT' => 'austria',
+            'BA' => 'bosnia-herzegovina',
+            'BE' => 'belgium',
+            'BG' => 'bulgeria',
+            'CH' => 'switzerland',
+            'CY' => 'cyprus',
+            'CZ' => 'czechia',
+            'DE' => 'germany',
+            'DK' => 'denmark',
+            'EE' => 'estonia',
+            'ES' => 'spain',
+            'FI' => 'finland',
+            'FR' => 'france',
+            'GR' => 'greece',
+            'HR' => 'croatia',
+            'HU' => 'hungary',
+            'IE' => 'ireland',
+            'IL' => 'israel',
+            'IS' => 'iceland',
+            'IT' => 'italy',
+            'LT' => 'lithuania',
+            'LU' => 'luxembourg',
+            'LV' => 'latvia',
+            'MD' => 'moldova',
+            'ME' => 'montenegro',
+            'MK' => 'republic-of-north-macedonia',
+            'MT' => 'malta',
+            'NL' => 'netherlands',
+            'NO' => 'norway',
+            'PL' => 'poland',
+            'PT' => 'portugal',
+            'RO' => 'romania',
+            'RS' => 'serbia',
+            'SE' => 'sweden',
+            'SI' => 'slovenia',
+            'SK' => 'slovkia',
+            'UK' => 'united-kingdom'
+          }
+# Find geocodes.json file at https://meteoalarm.org/en/live/page/redistribution-hub#list
+
+json_data = File.read('geocodes.json')
+parsed_data = JSON.parse(json_data)
+countries = mapping.keys
+data = {}
+countries.each { |c| data[c] = [] }
+
+parsed_data["features"].each do |f|
+  c = f['properties']['country']
+  c = 'UK' if c == 'GB'
+  area = f['properties']['name']
+  cords = f['geometry']['coordinates']
+  code = f['properties']['code']
+  type = f['geometry']['type']
+  data[c] << { 'code' => code, 'area' => area, 'coordinates' => cords, 'type' => type }
+end
+
+data.each do |country_code, values|
+  file = File.open("countries/#{mapping[country_code]}.json", "w")
+  file.write(values.to_json)
+  file.close
+end
