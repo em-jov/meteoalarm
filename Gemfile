@@ -10,3 +10,8 @@ gem "rake", "~> 13.0"
 gem "minitest", "~> 5.0"
 
 gem "geokit"
+
+group :test do
+  gem "webmock"
+  gem "timecop"
+end

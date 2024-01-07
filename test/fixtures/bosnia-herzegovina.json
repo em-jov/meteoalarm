@@ -1,0 +1,1632 @@
+{
+  "warnings": [
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240105083949.65615156",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Banja Luka",
+                "geocode": [{ "value": "BA003", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth between 2 and 5 cm",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Banja Luka",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Banja Luka",
+                "geocode": [{ "value": "BA003", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 2-5 cm",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Banja Luka",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-05T08:39:49+01:00",
+        "status": "Actual"
+      },
+      "uuid": "0e81189f-cd99-464d-ad76-3869d52a2e72"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240105083949.69554403",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Trebinje",
+                "geocode": [{ "value": "BA010", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Wind gusts from 40-60 km/h",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Wind Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Wind Yellow Warning for Bosnia and Herzegovina - region Trebinje",
+            "instruction": "Be aware of the debris carried by the wind. Local disturbances in outdoor activities are possible due to debris carried by the wind.",
+            "language": "en",
+            "onset": "2024-01-07T17:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "1; Wind", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Trebinje",
+                "geocode": [{ "value": "BA010", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Udari severnog vetra od 40-60 km/h",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Vjetar žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Vjetar žuto Upozorenje za Bosnu i Hercegovinu - region Trebinje",
+            "instruction": "Budite svjesni krhotina koje nosi vjetar. Lokalne smetenje u aktivnostima na otvorenom su moguće usljed krhotina koje nosi vjetar.",
+            "language": "bs",
+            "onset": "2024-01-07T17:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "1; Wind", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-05T08:39:49+01:00",
+        "status": "Actual"
+      },
+      "uuid": "c2ae8c40-b6a3-47d3-a88b-a5af2fadd024"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240105083949.92635468",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Prijedor",
+                "geocode": [{ "value": "BA002", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth between 2 and 5 cm",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Prijedor",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-07T13:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Prijedor",
+                "geocode": [{ "value": "BA002", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 2-5 cm",
+            "effective": "2024-01-05T08:39:49+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Prijedor",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-07T13:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-05T08:39:49+01:00",
+        "status": "Actual"
+      },
+      "uuid": "260874cf-6576-40af-be51-fa9d8f1eaa6b"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240105142838.98332252",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow 2-10 cm.",
+            "effective": "2024-01-05T14:28:38+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snijeg od 2-10 cm./ Snow 2-10 cm.",
+            "effective": "2024-01-05T14:28:38+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-05T14:28:38+01:00",
+        "status": "Actual"
+      },
+      "uuid": "fb241faf-8ba8-4db0-a41c-9d4b345b68b5"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080313.58228852",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Accumulated rain between 15 and 30 l/m2.",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Rain Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Rain Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware of the possibility of local flooding of a small number of properties, with local disruption to outdoor activities. Difficult driving conditions due to reduced visibility and uncontrolled movement of vehicles due to water.",
+            "language": "en",
+            "onset": "2024-01-07T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "10; Rain", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Očekivana količina padavina između 15 i 30 l/m2-",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Kiša žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Kiša žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni mogućnosti za lokalno plavljenje manjeg broja imovine, sa lokalnim ometanjem u aktivnostima na otvorenom. Teški uslovi za vožnju uslijed smanjenje vidljivosti i nekontrolisanog kretanja vozila uslijed vode.",
+            "language": "bs",
+            "onset": "2024-01-07T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "10; Rain", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:03:13+01:00",
+        "status": "Actual"
+      },
+      "uuid": "3be6441d-5d82-47c9-a7c5-c163796c1f8f"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080929.59753519",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "New snow between 5 and 10, in higer altitude up to 15 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Sarajevo",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Visina novog sniježnog pokrivaća između 5 i 10, u višom područjima 15 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Sarajevo",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:09:29+01:00",
+        "status": "Actual"
+      },
+      "uuid": "b5c6c977-353b-4c36-9fc3-f98e743a207f"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080929.28205478",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "New snow between 5 and 10 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Visina novog sniježnog pokrivaća između 5 i 10 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:09:29+01:00",
+        "status": "Actual"
+      },
+      "uuid": "28dff4af-3e3e-4897-bf7c-cf3ecd076ea6"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080929.59059374",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "New snow between 10 and 15 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Visina novog sniježnog pokrivaća između 10 i 15 cm.",
+            "effective": "2024-01-06T08:09:29+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:09:29+01:00",
+        "status": "Actual"
+      },
+      "uuid": "42193900-8a38-4caa-99ba-318afd5b32a3"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080313.30892745",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Accumulated rain between 15 and 25 l/m2.",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Rain Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Rain Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+            "instruction": "Be aware of the possibility of local flooding of a small number of properties, with local disruption to outdoor activities. Difficult driving conditions due to reduced visibility and uncontrolled movement of vehicles due to water.",
+            "language": "en",
+            "onset": "2024-01-07T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "10; Rain", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Očekivana količina padavina između 15 i 25 l/m2-",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Kiša žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Kiša žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+            "instruction": "Budite svjesni mogućnosti za lokalno plavljenje manjeg broja imovine, sa lokalnim ometanjem u aktivnostima na otvorenom. Teški uslovi za vožnju uslijed smanjenje vidljivosti i nekontrolisanog kretanja vozila uslijed vode.",
+            "language": "bs",
+            "onset": "2024-01-07T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "10; Rain", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:03:13+01:00",
+        "status": "Actual"
+      },
+      "uuid": "f7e4c461-78b8-49e1-9663-2648ff52b173"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106080313.50378886",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow 2-10 cm.",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snijeg od 2-10 cm./ Snow 2-10 cm.",
+            "effective": "2024-01-06T08:03:13+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-07T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-07T18:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:03:13+01:00",
+        "status": "Actual"
+      },
+      "uuid": "6b437130-677b-45d4-9fb6-d523b1290844"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106081136.36591924",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Livno",
+                "geocode": [{ "value": "BA005", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-09T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Livno",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Livno",
+                "geocode": [{ "value": "BA005", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-09T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Livno",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:11:36+01:00",
+        "status": "Actual"
+      },
+      "uuid": "77133dae-dcd8-4abd-9a33-7c946b1c2ecd"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106081136.40030908",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-09T11:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-09T11:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:11:36+01:00",
+        "status": "Actual"
+      },
+      "uuid": "d47845cd-a8d0-4c21-a481-e06ad18b8582"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106081136.21253395",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-09T11:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Sarajevo",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-09T11:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Sarajevo",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:11:36+01:00",
+        "status": "Actual"
+      },
+      "uuid": "dc34493b-c48c-4682-9db9-6fe85f9c7eca"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240106081136.74729187",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -5°C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-09T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -5 °C.",
+            "effective": "2024-01-06T08:11:36+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-09T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-09T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-06T08:11:36+01:00",
+        "status": "Actual"
+      },
+      "uuid": "c52cecb8-3073-4840-b988-e3f6d7e1a209"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240106124119.24618961",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Banja Luka",
+                "geocode": [{ "value": "BA003", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth from 5 to 10 cm, in the mountains up to 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Banja Luka",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Banja Luka",
+                "geocode": [{ "value": "BA003", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 5-10 cm, na planinana do 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Banja Luka",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-06T12:41:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "54811bec-6e1a-40a1-8114-2247125e357d"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240106124119.89437682",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Visegrad",
+                "geocode": [{ "value": "BA007", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth from 5 to 10 cm, in the mountains up to 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Visegrad",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Visegrad",
+                "geocode": [{ "value": "BA007", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 5-10 cm, na planinana do 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Visegrad",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-06T12:41:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "94ee329a-90a6-4b2f-ba0e-d56b97aa0105"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240106124119.12636877",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Prijedor",
+                "geocode": [{ "value": "BA002", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth from 5 to 10 cm, in the mountains up to 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Prijedor",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Prijedor",
+                "geocode": [{ "value": "BA002", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 5-10 cm, na planinana do 20 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Prijedor",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-06T12:41:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "1239755b-f70f-4bb6-92f5-2e69f91bcf79"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.1.BA.240106124119.58212957",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Foca",
+                "geocode": [{ "value": "BA009", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Snow depth from 2 to 10 cm, in the mountains up to 15 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snow-ice Yellow Warning",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snow-ice Yellow Warning for Bosnia and Herzegovina - region Foca",
+            "instruction": "Be aware of snow and/or ice on roads and sidewalks. Local distraction in outdoor activities. Be careful when walking, cycling or driving due to slippery surfaces.",
+            "language": "en",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republic Hydrometeorological Service of the Republic of Srpska",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Foca",
+                "geocode": [{ "value": "BA009", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "VIsina snežnog pokrivača između 2-10 cm, na planinana do 15 cm",
+            "effective": "2024-01-06T12:41:19+01:00",
+            "event": "Snijeg-led žuto Upozorenje",
+            "expires": "2024-01-08T23:59:59+01:00",
+            "headline": "Snijeg-led žuto Upozorenje za Bosnu i Hercegovinu - region Foca",
+            "instruction": "Budite svjesni rasprostranjenog snijega i/ili leda na saobraćajnicama i trotoarima. Lokalne smetenje u aktivnostima na otvorenom. Budite pažljivi kada hodate, vozite biciklo ili vozite automobil uslijed klizavih površina.",
+            "language": "bs",
+            "onset": "2024-01-08T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "2; snow-ice", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Republički hidrometeorološki zavod Republike Srpske",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "https://rhmzrs.com/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@rhmzrs.com",
+        "sent": "2024-01-06T12:41:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "954c1bc1-e164-4abb-a9bb-7b93696c1d06"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240107075519.32037951",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Livno",
+                "geocode": [{ "value": "BA005", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -7°C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Livno",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Livno",
+                "geocode": [{ "value": "BA005", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -7 °C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Livno",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-07T07:55:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "e1c0cfb3-123d-4e5e-9c5e-20ab3b12196b"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240107075519.77799897",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Sarajevo",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Sarajevo",
+                "geocode": [{ "value": "BA006", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Sarajevo",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-07T07:55:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "44ab5cb6-6d10-43e3-a474-ce2014ccddde"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240107075519.64518913",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Bihac",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Bihac",
+                "geocode": [{ "value": "BA001", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Bihac",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-07T07:55:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "d6e6d5c7-1048-4b8f-b626-d6093e43db68"
+    },
+    {
+      "alert": {
+        "identifier": "2.49.0.0.70.0.BA.240107075519.75445725",
+        "incidents": "Alert",
+        "info": [
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperature up to -6°C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Low-temperature Yellow Warning",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Low-temperature Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+            "instruction": "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+            "language": "en",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          },
+          {
+            "area": [
+              {
+                "areaDesc": "Tuzla",
+                "geocode": [{ "value": "BA004", "valueName": "EMMA_ID" }]
+              }
+            ],
+            "category": ["Met"],
+            "certainty": "Likely",
+            "description": "Min temperatura oko -6 °C.",
+            "effective": "2024-01-07T07:55:19+01:00",
+            "event": "Niska temperatura žuto Upozorenje",
+            "expires": "2024-01-10T10:00:59+01:00",
+            "headline": "Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+            "instruction": "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+            "language": "bs",
+            "onset": "2024-01-10T00:00:00+01:00",
+            "parameter": [
+              {
+                "value": "2; yellow; Moderate",
+                "valueName": "awareness_level"
+              },
+              { "value": "6; low-temperature", "valueName": "awareness_type" }
+            ],
+            "responseType": ["Monitor"],
+            "senderName": "Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+            "severity": "Moderate",
+            "urgency": "Future",
+            "web": "http://www.fhmzbih.gov.ba/latinica/"
+          }
+        ],
+        "msgType": "Alert",
+        "scope": "Public",
+        "sender": "sinoptika@fhmzbih.gov.ba",
+        "sent": "2024-01-07T07:55:19+01:00",
+        "status": "Actual"
+      },
+      "uuid": "b3a1e1d0-7e73-496a-b657-141eec73e5b7"
+    }
+  ]
+}

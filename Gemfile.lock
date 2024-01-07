@@ -6,9 +6,21 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.6)
+      public_suffix (>= 2.0.2, < 6.0)
+    crack (0.4.5)
+      rexml
     geokit (1.14.0)
+    hashdiff (1.1.0)
     minitest (5.20.0)
+    public_suffix (5.0.4)
     rake (13.1.0)
+    rexml (3.2.6)
+    timecop (0.9.8)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
 
 PLATFORMS
   arm64-darwin-22
@@ -18,6 +30,8 @@ DEPENDENCIES
   meteoalarm!
   minitest (~> 5.0)
   rake (~> 13.0)
+  timecop
+  webmock
 
 BUNDLED WITH
    2.4.13

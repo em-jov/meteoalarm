@@ -13,7 +13,7 @@ module Meteoalarm
     BASE_URL = 'https://feeds.meteoalarm.org/api/v1/warnings/'
 
     def self.alerts(country, options = {})
-      endpoint = "#{BASE_URL}feeds-#{country.downcase}"
+      endpoint = "#{BASE_URL}feeds-#{ country.downcase }"
       response = send_http_request(endpoint)
       check_status_code(response.code)
 
@@ -25,28 +25,13 @@ module Meteoalarm
       elsif options[:area]
         warnings = find_warnings_in_area(warnings, options[:area])
       end
-      
+
+      warnings = currently_active_alarms(warnings) if options[:active_now]
+      warnings = alarms_filter_by_date(warnings, options[:date]) if options[:date]
+  
       sort_warnings_by_onset!(warnings)
     end
 
-    def self.point_in_polygon(x, y, polygon)
-      point = Geokit::LatLng.new(y, x)
-      polygon_geom = Geokit::Polygon.new(polygon.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
-    
-      polygon_geom.contains?(point)
-    end
-
-    def self.point_in_multipolygon(x, y, multipolygon)
-      point = Geokit::LatLng.new(y, x)
-    
-      multipolygon.each do |polygon_coords|
-        polygon_geom = Geokit::Polygon.new(polygon_coords.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
-        return true if polygon_geom.contains?(point)
-      end
-    
-      false
-    end
-    
     private
 
     def self.send_http_request(endpoint)
@@ -65,6 +50,24 @@ module Meteoalarm
       elsif status_code.to_i != 200
         raise Error, "Server returned unexpected status code: #{status_code}"
       end
+    end
+
+    def self.point_in_polygon(x, y, polygon)
+      point = Geokit::LatLng.new(y, x)
+      polygon_geom = Geokit::Polygon.new(polygon.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
+    
+      polygon_geom.contains?(point)
+    end
+
+    def self.point_in_multipolygon(x, y, multipolygon)
+      point = Geokit::LatLng.new(y, x)
+    
+      multipolygon.each do |polygon_coords|
+        polygon_geom = Geokit::Polygon.new(polygon_coords.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
+        return true if polygon_geom.contains?(point)
+      end
+    
+      false
     end
 
     def self.show_expired_warnings!(warnings, expired_option)
@@ -114,6 +117,24 @@ module Meteoalarm
 
     def self.sort_warnings_by_onset!(warnings)
       warnings.sort_by! { |alert| Time.parse(alert.dig("alert", "info", 0, "onset")) }.reverse!
+    end
+
+    def self.currently_active_alarms(warnings)    
+      warnings.select do |alert|
+        onset_date = Time.parse(alert.dig("alert", "info", 0, "onset")).to_date
+        expires_time = Time.parse(alert.dig("alert", "info", 0, "expires"))
+    
+        onset_date == Time.now.to_date && expires_time > Time.now
+      end
+    end
+
+    def self.alarms_filter_by_date(warnings, date)
+      date_time = Time.parse(date)
+      return if date_time.to_date < Time.now.to_date
+    
+      warnings.select do |alert|
+        Time.parse(alert.dig("alert", "info", 0, "onset")).to_date == date_time.to_date
+      end
     end
   end
 end
