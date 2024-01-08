@@ -1,6 +1,6 @@
 # Meteoalarm
 
-The Meteoalarm gem serves as an API wrapper for meteoalarm.org, providing a user-friendly interface for retrieving weather warnings within the European region. Users can conveniently access warnings based on country, coordinates, or area description.
+Meteoalarm gem serves as an API wrapper for meteoalarm.org, providing a user-friendly interface for retrieving weather warnings within the European region. Users can conveniently access warnings based on country, coordinates or area.
 
 ## Installation
 
@@ -27,45 +27,46 @@ gem install meteoalarm
 ```ruby
 require 'meteoalarm'
 
-# Get warnings for a specific country
-warnings = Meteoalarm::Client.alerts('CountryName', options)
+# Get alarms for a specific country by its ISO 3166-1 A-2 code
+Meteoalarm::Client.alerts('FR', **options) # Example: France
 ```
 
 #### Options
 
-- `:latitude` and `:longitude`: Check warnings for a specific location.
-- `:area`: Check warnings for a specific area description.
-- `:expired`: Include expired warnings (default is `false`).
+- `:latitude` and `:longitude`: Check alarms for a specific coordinates.
+- `:area`: Check alarms for a specific area.
+- `:active_now`: Check currently active alarms.
+- `:date`: Check alarms by date.
+- `:expired`: Include expired alarms.
 
-## Examples
-
-#### Check Warnings by Country and Coordinates
-
-```ruby
-warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', latitude: 43.852276, longitude: 18.396182)
-```
-
-#### Check Warnings by Area Description
+#### Examples
 
 ```ruby
-warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', area: 'Sarajevo')
-```
+require 'meteoalarm'
 
-#### Include Expired Warnings
+# Check alarms by coordinates
+Meteoalarm::Client.alerts('FR', latitude: 48.84307, longitude: 2.33662)
 
-```ruby
-warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', expired: true)
+# Check alarms by area
+Meteoalarm::Client.alerts('FR', area: 'Paris')
+
+# Check currently active alarms
+Meteoalarm::Client.alerts('FR', active_now: true)
+
+# Check alarms by date
+Meteoalarm::Client.alerts('FR', date: '2024-01-10')
+
+# Include expired alarms
+Meteoalarm::Client.alerts('FR', expired: true)
+
+# Or combine the options
+Meteoalarm::Client.alerts('FR', area: 'Paris', active_now: true)
 ```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/em-jov/meteoalarm. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/meteoalarm/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/em-jov/meteoalarm.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Meteoalarm project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/meteoalarm/blob/master/CODE_OF_CONDUCT.md).
-

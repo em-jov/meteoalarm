@@ -62,9 +62,7 @@ class TestMeteoalarm < Minitest::Test
     stub_request(:any, /feeds-bosnia-herzegovina/).
       to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
 
-    # Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
-
-    warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', area: 'Sarajevo')
+    warnings = Meteoalarm::Client.alerts('ba', area: 'Sarajevo')
     assert_equal(expected, warnings.first)
   end
 
@@ -119,9 +117,7 @@ class TestMeteoalarm < Minitest::Test
     stub_request(:any, /feeds-bosnia-herzegovina/).
       to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
 
-    # Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
-
-    warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', latitude: 43.852276, longitude: 18.396182)
+    warnings = Meteoalarm::Client.alerts('ba', latitude: 43.852276, longitude: 18.396182)
     assert_equal(expected, warnings.first)
   end
 
@@ -186,7 +182,7 @@ class TestMeteoalarm < Minitest::Test
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alerts('croatia', area: 'North Dalmatia region')
+    warnings = Meteoalarm::Client.alerts('hr', area: 'North Dalmatia region')
     assert_equal(expected, warnings.first)
     assert_equal(2, warnings.count)
   end
@@ -197,7 +193,7 @@ class TestMeteoalarm < Minitest::Test
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alerts('croatia', area: 'North Dalmatia region', expired: true)
+    warnings = Meteoalarm::Client.alerts('hr', area: 'North Dalmatia region', expired: true)
     assert_equal(4, warnings.count)
   end
 
@@ -254,7 +250,7 @@ class TestMeteoalarm < Minitest::Test
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', area: 'Tuzla', active_now: true)
+    warnings = Meteoalarm::Client.alerts('ba', area: 'Tuzla', active_now: true)
     assert_equal(expected, warnings)
   end
 
@@ -309,7 +305,7 @@ class TestMeteoalarm < Minitest::Test
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alerts('bosnia-herzegovina', area: 'Tuzla', date: '2024-01-09')
+    warnings = Meteoalarm::Client.alerts('ba', area: 'Tuzla', date: '2024-01-09')
     assert_equal(expected, warnings)
   end 
 end

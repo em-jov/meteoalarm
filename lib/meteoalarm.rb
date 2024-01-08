@@ -5,6 +5,7 @@ require 'json'
 require 'time'
 require 'geokit'
 require_relative "meteoalarm/version"
+require_relative 'meteoalarm/country_mapping'
 
 module Meteoalarm
   class Error < StandardError; end
@@ -13,7 +14,14 @@ module Meteoalarm
     BASE_URL = 'https://feeds.meteoalarm.org/api/v1/warnings/'
 
     def self.alerts(country, options = {})
-      endpoint = "#{BASE_URL}feeds-#{ country.downcase }"
+      new.send(:alerts, country, options)
+    end
+
+    private
+
+    def alerts(country, options = {})
+      country = Meteoalarm::COUNTRY_MAPPING[country.upcase] || "invalid_country"
+      endpoint = "#{ BASE_URL }feeds-#{ country }"
       response = send_http_request(endpoint)
       check_status_code(response.code)
 
@@ -23,7 +31,7 @@ module Meteoalarm
       if options[:latitude] && options[:longitude]
         warnings = check_warnings_in_coordinates(warnings, country, options[:latitude], options[:longitude])
       elsif options[:area]
-        warnings = find_warnings_in_area(warnings, options[:area])
+        warnings = find_warnings_in_area(warnings, options[:area].downcase)
       end
 
       warnings = currently_active_alarms(warnings) if options[:active_now]
@@ -32,9 +40,7 @@ module Meteoalarm
       sort_warnings_by_onset!(warnings)
     end
 
-    private
-
-    def self.send_http_request(endpoint)
+    def send_http_request(endpoint)
       uri = URI.parse(endpoint)
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
@@ -42,7 +48,7 @@ module Meteoalarm
       http.request(request)
     end
 
-    def self.check_status_code(status_code)
+    def check_status_code(status_code)
       if status_code == '404'
         raise Error, 'Unsupported country name was specified'
       elsif status_code.to_i >= 500
@@ -52,14 +58,43 @@ module Meteoalarm
       end
     end
 
-    def self.point_in_polygon(x, y, polygon)
+    def show_expired_warnings!(warnings, expired_option)
+      return if expired_option
+
+      warnings.select! do |alert|
+        Time.parse(alert.dig("alert", "info", 0, "expires")) > Time.now
+      end
+    end
+
+    def check_warnings_in_coordinates(warnings, country, latitude, longitude)
+      country_spec = File.read("countries/#{country}.json")
+      parsed_data = JSON.parse(country_spec)
+
+      alerts = []
+      parsed_data.each do |area|
+        if area['type'] == 'MultiPolygon'
+          multipolygon = area['coordinates'].first
+          if point_in_multipolygon(longitude, latitude, multipolygon)       
+            alerts << find_warnings_in_code(warnings, area['code'])
+          end
+        else
+          polygon = area['coordinates'].first  
+          if point_in_polygon(longitude, latitude, polygon)        
+            alerts << find_warnings_in_code(warnings, area['code'])
+          end
+        end
+      end
+      alerts.flatten
+    end
+
+    def point_in_polygon(x, y, polygon)
       point = Geokit::LatLng.new(y, x)
       polygon_geom = Geokit::Polygon.new(polygon.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
     
       polygon_geom.contains?(point)
     end
 
-    def self.point_in_multipolygon(x, y, multipolygon)
+    def point_in_multipolygon(x, y, multipolygon)
       point = Geokit::LatLng.new(y, x)
     
       multipolygon.each do |polygon_coords|
@@ -70,38 +105,7 @@ module Meteoalarm
       false
     end
 
-    def self.show_expired_warnings!(warnings, expired_option)
-      return if expired_option
-
-      warnings.select! do |alert|
-        Time.parse(alert.dig("alert", "info", 0, "expires")) > Time.now
-      end
-    end
-
-    def self.check_warnings_in_coordinates(warnings, country, latitude, longitude)
-      country_spec = File.read("countries/#{country}.json")
-      parsed_data = JSON.parse(country_spec)
-
-      parsed_data.each do |area|
-        if area['type'] == 'MultiPolygon'
-          multipolygon = area['coordinates'].first
-          if point_in_multipolygon(longitude, latitude, multipolygon)       
-            warnings = find_warnings_in_code(warnings, area['code'])
-            break
-          end
-        else
-          polygon = area['coordinates'].first  
-          if point_in_polygon(longitude, latitude, polygon)        
-            warnings = find_warnings_in_code(warnings, area['code'])
-            break
-          end
-        end
-      end
-
-      warnings
-    end
-
-    def self.find_warnings_in_code(warnings, code)
+    def find_warnings_in_code(warnings, code)
       warnings.each_with_object([]) do |alert, area_alerts|
         alert.dig("alert", "info", 0, "area").each do |area|
           area_alerts << alert if area['geocode'].any? { |geocode| geocode['value'] == code }
@@ -109,26 +113,26 @@ module Meteoalarm
       end
     end
 
-    def self.find_warnings_in_area(warnings, area)
+    def find_warnings_in_area(warnings, area)
       warnings.select do |alert|
-        alert.dig("alert", "info", 0, "area").any? { |alert_area| alert_area['areaDesc'] == area }
+        alert.dig("alert", "info", 0, "area").any? { |alert_area| alert_area['areaDesc'].downcase == area }
       end
     end
 
-    def self.sort_warnings_by_onset!(warnings)
+    def sort_warnings_by_onset!(warnings)
       warnings.sort_by! { |alert| Time.parse(alert.dig("alert", "info", 0, "onset")) }.reverse!
     end
 
-    def self.currently_active_alarms(warnings)    
+    def currently_active_alarms(warnings) 
       warnings.select do |alert|
-        onset_date = Time.parse(alert.dig("alert", "info", 0, "onset")).to_date
+        onset_time = Time.parse(alert.dig("alert", "info", 0, "onset"))
         expires_time = Time.parse(alert.dig("alert", "info", 0, "expires"))
     
-        onset_date == Time.now.to_date && expires_time > Time.now
+        onset_time <= Time.now && expires_time > Time.now
       end
     end
 
-    def self.alarms_filter_by_date(warnings, date)
+    def alarms_filter_by_date(warnings, date)
       date_time = Time.parse(date)
       return if date_time.to_date < Time.now.to_date
     
