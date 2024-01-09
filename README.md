@@ -1,6 +1,6 @@
 # Meteoalarm
 
-Meteoalarm gem serves as an API wrapper for meteoalarm.org, providing a user-friendly interface for retrieving weather warnings within the European region. Users can conveniently access warnings based on country, coordinates or area.
+Meteoalarm serves as an API wrapper for [meteoalarm.org](https://meteoalarm.org/en/live/), a platform delivering hydrometeorological warnings across the European region. This gem simplifies the process of retrieving these warnings based on country, specific coordinates or area, along with a few additional options.
 
 ## Installation
 
@@ -28,7 +28,7 @@ gem install meteoalarm
 require 'meteoalarm'
 
 # Get alarms for a specific country by its ISO 3166-1 A-2 code
-Meteoalarm::Client.alerts('FR', **options) # Example: France
+Meteoalarm::Client.alarms('FR', **options) # Example: France
 ```
 
 #### Options
@@ -45,22 +45,22 @@ Meteoalarm::Client.alerts('FR', **options) # Example: France
 require 'meteoalarm'
 
 # Check alarms by coordinates
-Meteoalarm::Client.alerts('FR', latitude: 48.84307, longitude: 2.33662)
+Meteoalarm::Client.alarms('FR', latitude: 48.84307, longitude: 2.33662)
 
 # Check alarms by area
-Meteoalarm::Client.alerts('FR', area: 'Paris')
+Meteoalarm::Client.alarms('FR', area: 'Paris')
 
 # Check currently active alarms
-Meteoalarm::Client.alerts('FR', active_now: true)
+Meteoalarm::Client.alarms('FR', active_now: true)
 
 # Check alarms by date
-Meteoalarm::Client.alerts('FR', date: '2024-01-10')
+Meteoalarm::Client.alarms('FR', date: '2024-01-10')
 
 # Include expired alarms
-Meteoalarm::Client.alerts('FR', expired: true)
+Meteoalarm::Client.alarms('FR', expired: true)
 
 # Or combine the options
-Meteoalarm::Client.alerts('FR', area: 'Paris', active_now: true)
+Meteoalarm::Client.alarms('FR', area: 'Paris', active_now: true)
 ```
 
 ## Contributing

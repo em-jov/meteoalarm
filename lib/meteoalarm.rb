@@ -13,19 +13,19 @@ module Meteoalarm
   class Client
     BASE_URL = 'https://feeds.meteoalarm.org/api/v1/warnings/'
 
-    def self.alerts(country, options = {})
-      new.send(:alerts, country, options)
+    def self.alarms(country, options = {})
+      new.send(:alarms, country, options)
     end
 
     private
 
-    def alerts(country, options = {})
+    def alarms(country, options = {})
       country = Meteoalarm::COUNTRY_MAPPING[country.upcase] || "invalid_country"
       endpoint = "#{ BASE_URL }feeds-#{ country }"
       response = send_http_request(endpoint)
       check_status_code(response.code)
 
-      warnings = JSON.parse(response.body)['warnings']
+      warnings = JSON.parse(response.body, symbolize_names: true)[:warnings]
       show_expired_warnings!(warnings, options[:expired])
 
       if options[:latitude] && options[:longitude]
@@ -62,7 +62,7 @@ module Meteoalarm
       return if expired_option
 
       warnings.select! do |alert|
-        Time.parse(alert.dig("alert", "info", 0, "expires")) > Time.now
+        Time.parse(alert.dig(:alert, :info, 0, :expires)) > Time.now
       end
     end
 
@@ -72,7 +72,7 @@ module Meteoalarm
 
       alerts = []
       parsed_data.each do |area|
-        if area['type'] == 'MultiPolygon'
+        if area[:type] == 'MultiPolygon'
           multipolygon = area['coordinates'].first
           if point_in_multipolygon(longitude, latitude, multipolygon)       
             alerts << find_warnings_in_code(warnings, area['code'])
@@ -107,26 +107,26 @@ module Meteoalarm
 
     def find_warnings_in_code(warnings, code)
       warnings.each_with_object([]) do |alert, area_alerts|
-        alert.dig("alert", "info", 0, "area").each do |area|
-          area_alerts << alert if area['geocode'].any? { |geocode| geocode['value'] == code }
+        alert.dig(:alert, :info, 0, :area).each do |area|
+          area_alerts << alert if area[:geocode].any? { |geocode| geocode[:value] == code }
         end
       end
     end
 
     def find_warnings_in_area(warnings, area)
       warnings.select do |alert|
-        alert.dig("alert", "info", 0, "area").any? { |alert_area| alert_area['areaDesc'].downcase == area }
+        alert.dig(:alert, :info, 0, :area).any? { |alert_area| alert_area[:areaDesc].downcase == area }
       end
     end
 
     def sort_warnings_by_onset!(warnings)
-      warnings.sort_by! { |alert| Time.parse(alert.dig("alert", "info", 0, "onset")) }.reverse!
+      warnings.sort_by! { |alert| Time.parse(alert.dig(:alert, :info, 0, :onset)) }.reverse!
     end
 
     def currently_active_alarms(warnings) 
       warnings.select do |alert|
-        onset_time = Time.parse(alert.dig("alert", "info", 0, "onset"))
-        expires_time = Time.parse(alert.dig("alert", "info", 0, "expires"))
+        onset_time = Time.parse(alert.dig(:alert, :info, 0, :onset))
+        expires_time = Time.parse(alert.dig(:alert, :info, 0, :expires))
     
         onset_time <= Time.now && expires_time > Time.now
       end
@@ -137,7 +137,7 @@ module Meteoalarm
       return if date_time.to_date < Time.now.to_date
     
       warnings.select do |alert|
-        Time.parse(alert.dig("alert", "info", 0, "onset")).to_date == date_time.to_date
+        Time.parse(alert.dig(:alert, :info, 0, :onset)).to_date == date_time.to_date
       end
     end
   end
