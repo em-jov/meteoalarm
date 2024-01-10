@@ -36,8 +36,8 @@ module Meteoalarm
 
       warnings = currently_active_alarms(warnings) if options[:active_now]
       warnings = alarms_filter_by_date(warnings, options[:date]) if options[:date]
-  
-      sort_warnings_by_onset!(warnings)
+      
+      warnings
     end
 
     def send_http_request(endpoint)
@@ -117,10 +117,6 @@ module Meteoalarm
       warnings.select do |alert|
         alert.dig(:alert, :info, 0, :area).any? { |alert_area| alert_area[:areaDesc].downcase == area }
       end
-    end
-
-    def sort_warnings_by_onset!(warnings)
-      warnings.sort_by! { |alert| Time.parse(alert.dig(:alert, :info, 0, :onset)) }.reverse!
     end
 
     def currently_active_alarms(warnings) 

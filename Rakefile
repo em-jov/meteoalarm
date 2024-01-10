@@ -9,4 +9,6 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/test_*.rb"]
 end
 
+Dir.glob("lib/meteoalarm/tasks/**/*.rake").each { |f| import f }
+
 task default: :test

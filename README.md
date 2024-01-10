@@ -63,6 +63,15 @@ Meteoalarm::Client.alarms('FR', expired: true)
 Meteoalarm::Client.alarms('FR', area: 'Paris', active_now: true)
 ```
 
+#### Rake tasks
+```
+rake meteoalarm:areas
+    List all areas of given COUNTRY_CODE in Meteoalarm system
+
+rake meteoalarm:countries
+    List all countries in Meteoalarm system
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/em-jov/meteoalarm.
