@@ -63,13 +63,22 @@ Meteoalarm::Client.alarms('FR', expired: true)
 Meteoalarm::Client.alarms('FR', area: 'Paris', active_now: true)
 ```
 
-#### Rake tasks
-```
-rake meteoalarm:areas
-    List all areas of given COUNTRY_CODE in Meteoalarm system
+## Rake tasks
 
+To incorporate Meteoalarm rake tasks into your project, include the following code in your `Rakefile`:
+```ruby
+require 'meteoalarm'
+
+spec = Gem::Specification.find_by_name 'meteoalarm'
+Dir.glob("#{spec.gem_dir}/lib/meteoalarm/tasks/*.rake").each { |f| import f }
+```
+By adding this code, you will gain access to the following rake tasks:
+```
 rake meteoalarm:countries
     List all countries in Meteoalarm system
+
+rake meteoalarm:areas
+    List all areas of given COUNTRY_CODE in Meteoalarm system
 ```
 
 ## Contributing

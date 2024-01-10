@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     meteoalarm (0.1.0)
+      geokit (~> 1.14)
 
 GEM
   remote: https://rubygems.org/
@@ -27,7 +28,6 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  geokit
   meteoalarm!
   minitest (~> 5.0)
   rake (~> 13.0)
