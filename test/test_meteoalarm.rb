@@ -67,6 +67,8 @@ class TestMeteoalarm < Minitest::Test
     stub_request(:any, /feeds-bosnia-herzegovina/).
       to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
 
+    Timecop.freeze(Time.local(2024, 1, 9, 17, 00, 0))
+
     warnings = Meteoalarm::Client.alarms('ba', area: 'Sarajevo')
     assert_equal(expected, warnings.first)
   end
@@ -126,6 +128,8 @@ class TestMeteoalarm < Minitest::Test
 
     stub_request(:any, /feeds-bosnia-herzegovina/).
       to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+
+    Timecop.freeze(Time.local(2024, 1, 9, 17, 00, 0))  
 
     warnings = Meteoalarm::Client.alarms('ba', latitude: 43.852276, longitude: 18.396182)
     assert_equal(expected, warnings.first)
@@ -201,7 +205,7 @@ class TestMeteoalarm < Minitest::Test
     assert_equal(2, warnings.count)
   end
 
-  def test_alarms_method_with_valid_country_and_area_with_exipred_alarms
+  def test_alarms_method_with_valid_country_and_area_with_expired_alarms
     # skip
     stub_request(:any, /feeds-croatia/).
       to_return(body: File.read('test/fixtures/croatia.json'), status: 200)
