@@ -54,7 +54,7 @@ Meteoalarm::Client.alarms('FR', area: 'Paris')
 Meteoalarm::Client.alarms('FR', active_now: true)
 
 # Check alarms by date
-Meteoalarm::Client.alarms('FR', date: '2024-01-10')
+Meteoalarm::Client.alarms('FR', date: Date.new(2024, 1, 21))
 
 # Include expired alarms
 Meteoalarm::Client.alarms('FR', expired: true)

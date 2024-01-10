@@ -11,12 +11,19 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     crack (0.4.5)
       rexml
+    docile (1.4.0)
     geokit (1.14.0)
     hashdiff (1.1.0)
     minitest (5.20.0)
     public_suffix (5.0.4)
     rake (13.1.0)
     rexml (3.2.6)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     timecop (0.9.8)
     webmock (3.19.1)
       addressable (>= 2.8.0)
@@ -31,6 +38,7 @@ DEPENDENCIES
   meteoalarm!
   minitest (~> 5.0)
   rake (~> 13.0)
+  simplecov
   timecop
   webmock
 

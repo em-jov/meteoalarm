@@ -135,15 +135,15 @@ class TestMeteoalarm < Minitest::Test
     assert_equal(expected, warnings.first)
   end
 
-  def test_alarms_method_with_invalid_country
+  def test_alarms_method_with_invalid_country_code
     # skip
-    stub_request(:any, /feeds-invalid_country/).to_return(status: 404)
+    stub_request(:any, /feeds-xyz/).to_return(status: 404)
     
     error = assert_raises(Meteoalarm::Error) do
-      Meteoalarm::Client.alarms('invalid_country')
+      Meteoalarm::Client.alarms('xyz')
     end
 
-    assert_match('Unsupported country name was specified', error.message)
+    assert_match('The provided country code is not supported. Refer to the rake tasks to view a list of available country codes.', error.message)
   end
 
   def test_alarms_method_with_valid_country_and_area_with_multipolygons
@@ -334,7 +334,7 @@ class TestMeteoalarm < Minitest::Test
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alarms('ba', area: 'Tuzla', date: '2024-01-09')
+    warnings = Meteoalarm::Client.alarms('ba', area: 'Tuzla', date: Date.new(2024, 1, 9))
     assert_equal(expected, warnings)
   end 
 end

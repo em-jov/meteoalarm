@@ -12,4 +12,5 @@ gem "minitest", "~> 5.0"
 group :test do
   gem "webmock"
   gem "timecop"
+  gem "simplecov"
 end
