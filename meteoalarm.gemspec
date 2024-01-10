@@ -5,7 +5,7 @@ require_relative "lib/meteoalarm/version"
 Gem::Specification.new do |spec|
   spec.name = "meteoalarm"
   spec.version = Meteoalarm::VERSION
-  spec.authors = ["em-jov"]
+  spec.authors = ["Em Jov"]
 
   spec.summary = "API wrapper for meteoalarm.org."
   spec.description = "API wrapper for meteoalarm.org."
