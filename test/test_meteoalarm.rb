@@ -139,7 +139,7 @@ class TestMeteoalarm < Minitest::Test
     # skip
     stub_request(:any, /feeds-xyz/).to_return(status: 404)
     
-    error = assert_raises(Meteoalarm::Error) do
+    error = assert_raises(Meteoalarm::ArgumentError) do
       Meteoalarm::Client.alarms('xyz')
     end
 
@@ -149,60 +149,54 @@ class TestMeteoalarm < Minitest::Test
   def test_alarms_method_with_valid_country_and_area_with_multipolygons
     # skip
     expected = {:alert=>
-                 {:identifier=>"2.49.0.0.191.0.HR.240106140208_0_orange_HR804",
-                  :incidents=>"Alert",
-                  :info=>
-                    [{:area=>[{:areaDesc=>"North Dalmatia region", :geocode=>[{:value=>"HR804", :valueName=>"EMMA_ID"}]}],
-                      :category=>["Met"],
-                      :certainty=>"Possible",
-                      :description=>"Jaka, mjestimice vrlo jaka bura. Najjači udari vjetra 35-60 čvorova  (65-110 km/h)",
-                      :effective=>"2024-01-06T14:02:08+01:00",
-                      :event=>"Narančasto upozorenje za vjetar",
-                      :expires=>"2024-01-08T23:59:59+01:00",
-                      :instruction=>
-                      "UTJECAJ: Očekujte i budite pripravni za olujne brzine vjetra u kombinaciji s lokalno visokim valovima koji su se već ili će se tek generirati. Upravljanje plovilom u tim uvjetima zahtijeva veliko iskustvo te adekvatno opremljena plovila.\n" +
-                      "Preporučljivo je da pomorci bez odgovarajućeg iskustva potraže  sigurnu luku prije početka potencijalno opasnog vjetra i valova. Vjerojatno je da mnogi katamarani i trajekti neće ploviti pa ako putujete, pratite informacije o prometu.",
-                      :language=>"hr-HR",
-                      :onset=>"2024-01-08T00:01:01+01:00",
-                      :parameter=>
-                      [{:value=>"3; orange; Severe", :valueName=>"awareness_level"}, {:value=>"1; Wind", :valueName=>"awareness_type"}],
-                      :responseType=>["Monitor"],
-                      :senderName=>"DHMZ Državni hidrometeorološki zavod",
-                      :severity=>"Severe",
-                      :urgency=>"Future"},
-                    {:area=>[{:areaDesc=>"North Dalmatia region", :geocode=>[{:value=>"HR804", :valueName=>"EMMA_ID"}]}],
-                      :category=>["Met"],
-                      :certainty=>"Possible",
-                      :description=>"Strong, locally near gale NE wind. Maximum wind gusts 35-60 knots  (65-110 km/h)",
-                      :effective=>"2024-01-06T14:02:08+01:00",
-                      :event=>"Orange wind warning",
-                      :expires=>"2024-01-08T23:59:59+01:00",
-                      :instruction=>
-                      "IMPACT: Be prepared for gale and strong gale wind speeds combined with locally high waves that are imminent or occurring. Operating a vessel in these conditions requires experience and properly equipped vessels.\n" +
-                      "It is highly recommended that mariners without the proper experience seek safe harbor prior to onset of potentially dangerous wind and wave conditions. It is likely that many ferries will not operate so follow traffic information if travelling.",
-                      :language=>"en-GB",
-                      :onset=>"2024-01-08T00:01:01+01:00",
-                      :parameter=>
-                      [{:value=>"3; orange; Severe", :valueName=>"awareness_level"}, {:value=>"1; Wind", :valueName=>"awareness_type"}],
-                      :responseType=>["Monitor"],
-                      :senderName=>"DHMZ Državni hidrometeorološki zavod",
-                      :severity=>"Severe",
-                      :urgency=>"Future"}],
-                  :msgType=>"Alert",
-                  :scope=>"Public",
-                  :sender=>"https://meteo.hr",
-                  :sent=>"2024-01-06T14:02:08+01:00",
-                  :status=>"Actual"},
-                :uuid=>"e940aab4-98f3-4935-8fdc-ed67415e06b7"}
+                {:identifier=>"2.49.0.0.191.0.HR.240107082021_0_yellow_HR008",
+                :incidents=>"Alert",
+                :info=>
+                  [{:area=>[{:areaDesc=>"Split region", :geocode=>[{:value=>"HR008", :valueName=>"EMMA_ID"}]}],
+                    :category=>["Met"],
+                    :certainty=>"Likely",
+                    :description=>"Mjestimice jako jugo u okretanju na buru s olujnim udarima. najjači udar vjetra > 65 km/h",
+                    :effective=>"2024-01-07T08:20:21+01:00",
+                    :event=>"Žuto upozorenje za vjetar",
+                    :expires=>"2024-01-07T23:59:59+01:00",
+                    :instruction=>"BUDITE NA OPREZU zbog krhotina koje lete nošene jakim vjetrom. Mogući su lokalizirani prekidi u aktivnostima na otvorenom.",
+                    :language=>"hr-HR",
+                    :onset=>"2024-01-07T09:00:00+01:00",
+                    :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"1; Wind", :valueName=>"awareness_type"}],
+                    :responseType=>["Monitor"],
+                    :senderName=>"DHMZ Državni hidrometeorološki zavod",
+                    :severity=>"Moderate",
+                    :urgency=>"Future"},
+                  {:area=>[{:areaDesc=>"Split region", :geocode=>[{:value=>"HR008", :valueName=>"EMMA_ID"}]}],
+                    :category=>["Met"],
+                    :certainty=>"Likely",
+                    :description=>"Locally strong jugo (SE) wind turning to bura (NE) with gale force gusts. maximum gust speed > 65 km/h",
+                    :effective=>"2024-01-07T08:20:21+01:00",
+                    :event=>"Yellow wind warning",
+                    :expires=>"2024-01-07T23:59:59+01:00",
+                    :instruction=>"STAY ALERT for debris carried by strong winds. Debris and tree branches carried by the wind may cause localised interruptions in outdoor activities.",
+                    :language=>"en-GB",
+                    :onset=>"2024-01-07T09:00:00+01:00",
+                    :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"1; Wind", :valueName=>"awareness_type"}],
+                    :responseType=>["Monitor"],
+                    :senderName=>"DHMZ Državni hidrometeorološki zavod",
+                    :severity=>"Moderate",
+                    :urgency=>"Future"}],
+                :msgType=>"Alert",
+                :scope=>"Public",
+                :sender=>"https://meteo.hr",
+                :sent=>"2024-01-07T08:20:21+01:00",
+                :status=>"Actual"},
+              :uuid=>"8829dadd-8ce7-455a-8500-7ad46053f97a"}
 
     stub_request(:any, /feeds-croatia/).
       to_return(body: File.read('test/fixtures/croatia.json'), status: 200)
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
-    warnings = Meteoalarm::Client.alarms('hr', area: 'North Dalmatia region')
+    warnings = Meteoalarm::Client.alarms('hr', latitude: 43.5153279, longitude: 16.4363667)
+
     assert_equal(expected, warnings.first)
-    assert_equal(2, warnings.count)
   end
 
   def test_alarms_method_with_valid_country_and_area_with_expired_alarms
@@ -337,4 +331,64 @@ class TestMeteoalarm < Minitest::Test
     warnings = Meteoalarm::Client.alarms('ba', area: 'Tuzla', date: Date.new(2024, 1, 9))
     assert_equal(expected, warnings)
   end 
+
+  def test_alarms_filter_by_date_set_in_past
+    # skip
+
+    stub_request(:any, /feeds-bosnia-herzegovina/).
+    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+
+    Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
+
+    error = assert_raises(Meteoalarm::ArgumentError) do
+      Meteoalarm::Client.alarms('ba', area: 'Tuzla', date: Date.new(2024, 1, 6))
+    end
+
+    assert_match('The date must be set in the future.', error.message)
+  end 
+
+  def test_check_area_with_unsupported_name
+    stub_request(:any, /feeds-bosnia-herzegovina/).
+    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+
+    error = assert_raises(Meteoalarm::ArgumentError) do
+      Meteoalarm::Client.alarms('ba', area: 'xyz')
+    end
+
+    assert_match('The provided area name is not supported. Refer to the rake tasks to view a list of available area names.', error.message)
+  end
+
+  def test_check_status_code_404
+    stub_request(:any, /feeds-fr/).
+    to_return(body: "", status: 404)
+
+    error = assert_raises(Meteoalarm::APIError) do
+      Meteoalarm::Client.alarms('fr')
+    end
+
+    assert_match("The requested page could not be found. Please consider upgrading the Meteoalarm gem or opening an issue.", error.message)
+  end
+
+  def test_check_status_code_500
+    stub_request(:any, /feeds-bosnia-herzegovina/).
+    to_return(body: "", status: 500)
+
+    error = assert_raises(Meteoalarm::APIError) do
+      Meteoalarm::Client.alarms('ba')
+    end
+
+    assert_match("Server error - status code: 500", error.message)
+  end
+
+  def test_check_status_code_301
+    stub_request(:any, /feeds-bosnia-herzegovina/).
+    to_return(body: "", status: 301)
+
+    error = assert_raises(Meteoalarm::APIError) do
+      Meteoalarm::Client.alarms('ba')
+    end
+
+    assert_match("Server returned unexpected status code: 301", error.message)
+  end
 end
+

@@ -9,6 +9,8 @@ require_relative 'meteoalarm/country_mapping'
 
 module Meteoalarm
   class Error < StandardError; end
+  class ArgumentError < Error; end
+  class APIError < Error; end
 
   class Client
     BASE_URL = 'https://feeds.meteoalarm.org/api/v1/warnings/'
@@ -21,8 +23,8 @@ module Meteoalarm
     # Arguments:
     #   country_code: (String) - ISO 3166-1 A-2 code representing the country
     #   options: (Hash) - Additional search options
-    #     area: (String) - Area to filter alarms
     #     latitude:, longitude: (Float) - Coordinates for location-based alarm search
+    #     area: (String) - Area to filter alarms. This option will be ignored if you provide coordinates.
     #     active_now: (Boolean) - Search for currently active alarms
     #     expired: (Boolean) - List alarms that have expired
     #     date: (Date) - Search alarms by a specified future date
@@ -30,23 +32,26 @@ module Meteoalarm
     # Returns an array of weather alarms based on the provided criteria.
 
     def self.alarms(country_code, options = {})
-      new.send(:alarms, country_code, options)
+      country = Meteoalarm::COUNTRY_MAPPING[country_code.upcase]
+      raise Meteoalarm::ArgumentError, "The provided country code is not supported. Refer to the rake tasks to view a list of available country codes." unless country
+      raise Meteoalarm::ArgumentError, "Both latitude and longitude must be provided." if (options[:latitude] && !options[:longitude]) || (!options[:latitude] && options[:longitude])
+      raise Meteoalarm::ArgumentError, "Incorrect date format provided." if options[:date] && !options[:date].is_a?(Date)
+      raise Meteoalarm::ArgumentError, "The date must be set in the future." if options[:date] && options[:date] < Date.today
+      warn "Provided coordinates will override the specified area." if (options[:latitude] && options[:area]) 
+
+      new.send(:alarms, country, options)
     end
 
     private
 
-    def alarms(country_code, options = {})
-      country = Meteoalarm::COUNTRY_MAPPING[country_code.upcase] #|| "invalid_country"
-      raise Error, 'The provided country code is not supported. Refer to the rake tasks to view a list of available country codes.' unless country
+    def alarms(country, options = {})
       endpoint = "#{ BASE_URL }feeds-#{ country }"
       response = send_http_request(endpoint)
       check_status_code(response.code)
 
       warnings = JSON.parse(response.body, symbolize_names: true)[:warnings]
       show_expired_warnings!(warnings, options[:expired])
-
-      raise Error, "Latitude and longitude must be provided." if (options[:latitude] && !options[:longitude]) || (!options[:latitude] && options[:longitude])
-
+      
       if options[:latitude] && options[:longitude]
         warnings = check_warnings_in_coordinates(warnings, country, options[:latitude], options[:longitude])
       elsif options[:area]
@@ -55,7 +60,7 @@ module Meteoalarm
       end
 
       warnings = currently_active_alarms(warnings) if options[:active_now]
-      warnings = alarms_filter_by_date(warnings, options[:date]) if options[:date] && options[:date].is_a?(Date)
+      warnings = alarms_filter_by_date(warnings, options[:date]) if options[:date]
       
       warnings
     end
@@ -64,7 +69,7 @@ module Meteoalarm
       data = File.read("countries/#{country}.json")
       spec = JSON.parse(data)
       unless spec.find { |s| s["area"].downcase == area.downcase }  
-        raise Error, 'The provided area name is not supported. Refer to the rake tasks to view a list of available area names.'
+        raise Meteoalarm::ArgumentError, 'The provided area name is not supported. Refer to the rake tasks to view a list of available area names.'
       end
     end
 
@@ -78,11 +83,11 @@ module Meteoalarm
 
     def check_status_code(status_code)
       if status_code == '404'
-        raise Error, 'The provided country code is not supported. Refer to the rake tasks to view a list of available country codes.'
+        raise Meteoalarm::APIError, "The requested page could not be found. Please consider upgrading the Meteoalarm gem or opening an issue."
       elsif status_code.to_i >= 500
-        raise Error, "Server error - status code: #{status_code}"
+        raise Meteoalarm::APIError, "Server error - status code: #{status_code}"
       elsif status_code.to_i != 200
-        raise Error, "Server returned unexpected status code: #{status_code}"
+        raise Meteoalarm::APIError, "Server returned unexpected status code: #{status_code}"
       end
     end
 
@@ -100,7 +105,7 @@ module Meteoalarm
 
       alerts = []
       parsed_data.each do |area|
-        if area[:type] == 'MultiPolygon'
+        if area['type'] == 'MultiPolygon'
           multipolygon = area['coordinates'].first
           if point_in_multipolygon(longitude, latitude, multipolygon)       
             alerts << find_warnings_in_code(warnings, area['code'])
@@ -157,8 +162,6 @@ module Meteoalarm
     end
 
     def alarms_filter_by_date(warnings, date)
-      return if date < Date.today
-    
       warnings.select do |alert|
         Time.parse(alert.dig(:alert, :info, 0, :onset)).to_date == date
       end
