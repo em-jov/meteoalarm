@@ -1,6 +1,6 @@
 # Meteoalarm
 
-Meteoalarm serves as an API wrapper for [meteoalarm.org](https://meteoalarm.org/en/live/), a platform delivering hydrometeorological warnings across the European region. This gem simplifies the process of retrieving these warnings based on country, specific coordinates or area, along with a few additional options.
+Meteoalarm serves as an API wrapper for [meteoalarm.org](https://meteoalarm.org/en/live/), a platform delivering hydrometeorological warnings across the European region. This gem simplifies the process of retrieving warnings based on country, specific coordinates or area, along with a few additional options.
 
 ## Installation
 
@@ -83,8 +83,8 @@ rake meteoalarm:areas
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/em-jov/meteoalarm.
+Your contributions are welcome and appreciated. If you encounter any issues or have suggestions for improvements, please open an issue on the [issue tracker](https://github.com/em-jov/meteoalarm/issues).
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [MIT License](LICENSE.txt).

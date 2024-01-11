@@ -3,7 +3,6 @@ require 'net/http'
 require 'uri'
 require 'json'
 require 'time'
-require 'geokit'
 require_relative 'meteoalarm/version'
 require_relative 'meteoalarm/country_mapping'
 
@@ -24,7 +23,7 @@ module Meteoalarm
     #   country_code: (String) - ISO 3166-1 A-2 code representing the country
     #   options: (Hash) - Additional search options
     #     latitude:, longitude: (Float) - Coordinates for location-based alarm search
-    #     area: (String) - Area to filter alarms. This option will be ignored if you provide coordinates.
+    #     area: (String) - Area to filter alarms (ignored if coordinates are provided)
     #     active_now: (Boolean) - Search for currently active alarms
     #     expired: (Boolean) - List alarms that have expired
     #     date: (Date) - Search alarms by a specified future date
@@ -120,19 +119,25 @@ module Meteoalarm
       alerts.flatten
     end
 
-    def point_in_polygon(x, y, polygon)
-      point = Geokit::LatLng.new(y, x)
-      polygon_geom = Geokit::Polygon.new(polygon.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
+    def point_in_polygon(long, lat, polygon)
+      odd_nodes = false
+      j = polygon.length - 1
     
-      polygon_geom.contains?(point)
+      (0...polygon.length).each do |i|
+        if (polygon[i][1] < lat && polygon[j][1] >= lat) || (polygon[j][1] < lat && polygon[i][1] >= lat)
+          if (polygon[i][0] + (lat - polygon[i][1]) / (polygon[j][1] - polygon[i][1]) * (polygon[j][0] - polygon[i][0]) < long)
+            odd_nodes = !odd_nodes
+          end
+        end
+        j = i
+      end
+    
+      odd_nodes
     end
 
-    def point_in_multipolygon(x, y, multipolygon)
-      point = Geokit::LatLng.new(y, x)
-    
-      multipolygon.each do |polygon_coords|
-        polygon_geom = Geokit::Polygon.new(polygon_coords.map { |lon, lat| Geokit::LatLng.new(lat, lon) })
-        return true if polygon_geom.contains?(point)
+    def point_in_multipolygon(long, lat, multipolygon)    
+      multipolygon.each do |polygon|
+        return true if point_in_polygon(long, lat, polygon)
       end
     
       false
