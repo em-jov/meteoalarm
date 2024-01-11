@@ -83,7 +83,7 @@ rake meteoalarm:areas
 
 ## Contributing
 
-Your contributions are welcome and appreciated. If you encounter any issues or have suggestions for improvements, please open an issue on the [issue tracker](https://github.com/em-jov/meteoalarm/issues).
+Your contributions are welcome and appreciated. If you find issues or have improvements, feel free to open an issue or submit a pull request.
 
 ## License
 
