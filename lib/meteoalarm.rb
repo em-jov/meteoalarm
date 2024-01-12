@@ -65,7 +65,8 @@ module Meteoalarm
     end
 
     def check_area(country, area)
-      data = File.read("countries/#{country}.json")
+      path = File.expand_path(__dir__)
+      data = File.read("#{path}/../countries/#{country}.json")
       spec = JSON.parse(data)
       unless spec.find { |s| s["area"].downcase == area.downcase }  
         raise Meteoalarm::ArgumentError, 'The provided area name is not supported. Refer to the rake tasks to view a list of available area names.'
@@ -99,7 +100,8 @@ module Meteoalarm
     end
 
     def check_warnings_in_coordinates(warnings, country, latitude, longitude)
-      country_spec = File.read("countries/#{country}.json")
+      path = File.expand_path(__dir__)
+      country_spec = File.read("#{path}/../countries/#{country}.json")
       parsed_data = JSON.parse(country_spec)
 
       alerts = []
