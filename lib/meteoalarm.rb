@@ -49,8 +49,8 @@ module Meteoalarm
       check_status_code(response.code)
 
       warnings = JSON.parse(response.body, symbolize_names: true)[:warnings]
-      show_expired_warnings!(warnings, options[:expired])
-      
+      reject_expired_warnings!(warnings) unless options[:expired]
+
       if options[:latitude] && options[:longitude]
         warnings = check_warnings_in_coordinates(warnings, country, options[:latitude], options[:longitude])
       elsif options[:area]
@@ -91,11 +91,9 @@ module Meteoalarm
       end
     end
 
-    def show_expired_warnings!(warnings, expired_option)
-      return if expired_option
-
-      warnings.select! do |alert|
-        Time.parse(alert.dig(:alert, :info, 0, :expires)) > Time.now
+    def reject_expired_warnings!(warnings)
+      warnings.reject! do |warning|
+        Time.parse(warning.dig(:alert, :info, 0, :expires)) < Time.now
       end
     end
 
