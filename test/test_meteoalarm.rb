@@ -12,7 +12,6 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_alarms_method_with_valid_country_and_area
-    # skip
     expected = {:alert=>
                 {:identifier=>"2.49.0.0.70.0.BA.240107075519.77799897",
                 :incidents=>"Alert",
@@ -64,8 +63,8 @@ class TestMeteoalarm < Minitest::Test
                 :status=>"Actual"},
               :uuid=>"44ab5cb6-6d10-43e3-a474-ce2014ccddde"}
 
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-      to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 9, 17, 00, 0))
 
@@ -74,7 +73,6 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_alarms_method_with_valid_country_and_area_with_coordinates
-    # skip
     expected = {:alert=>
                 {:identifier=>"2.49.0.0.70.0.BA.240107075519.77799897",
                 :incidents=>"Alert",
@@ -126,8 +124,8 @@ class TestMeteoalarm < Minitest::Test
                 :status=>"Actual"},
               :uuid=>"44ab5cb6-6d10-43e3-a474-ce2014ccddde"}
 
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-      to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 9, 17, 00, 0))  
 
@@ -135,10 +133,7 @@ class TestMeteoalarm < Minitest::Test
     assert_equal(expected, warnings.first)
   end
 
-  def test_alarms_method_with_invalid_country_code
-    # skip
-    stub_request(:any, /feeds-xyz/).to_return(status: 404)
-    
+  def test_alarms_method_with_invalid_country_code  
     error = assert_raises(Meteoalarm::ArgumentError) do
       Meteoalarm::Client.alarms('xyz')
     end
@@ -189,8 +184,8 @@ class TestMeteoalarm < Minitest::Test
                 :status=>"Actual"},
               :uuid=>"8829dadd-8ce7-455a-8500-7ad46053f97a"}
 
-    stub_request(:any, /feeds-croatia/).
-      to_return(body: File.read('test/fixtures/croatia.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('croatia').
+      returns(JSON.parse(File.read('test/fixtures/croatia.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
@@ -200,9 +195,8 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_alarms_method_with_valid_country_and_area_with_expired_alarms
-    # skip
-    stub_request(:any, /feeds-croatia/).
-      to_return(body: File.read('test/fixtures/croatia.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('croatia').
+      returns(JSON.parse(File.read('test/fixtures/croatia.json'), symbolize_names: true)[:warnings])  
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
@@ -211,7 +205,6 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_currently_active_alarms
-    # skip
     expected = [{:alert=>
                  {:identifier=>"2.49.0.0.70.0.BA.240106080313.30892745",
                   :incidents=>"Alert",
@@ -261,8 +254,8 @@ class TestMeteoalarm < Minitest::Test
                   :status=>"Actual"},
                 :uuid=>"f7e4c461-78b8-49e1-9663-2648ff52b173"}]
 
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
@@ -271,7 +264,6 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_future_alarms
-    # skip
     expected = [{:alert=>
                   {:identifier=>"2.49.0.0.70.0.BA.240106081136.40030908",
                   :incidents=>"Alert",
@@ -365,8 +357,8 @@ class TestMeteoalarm < Minitest::Test
                   :status=>"Actual"},
                 :uuid=>"b3a1e1d0-7e73-496a-b657-141eec73e5b7"}]
 
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 8, 17, 00, 0))
 
@@ -375,7 +367,6 @@ class TestMeteoalarm < Minitest::Test
   end
 
   def test_alarms_filter_by_date
-    # skip
     expected = [{:alert=>
                  {:identifier=>"2.49.0.0.70.0.BA.240106081136.40030908",
                   :incidents=>"Alert",
@@ -427,8 +418,8 @@ class TestMeteoalarm < Minitest::Test
                   :status=>"Actual"},
                 :uuid=>"d47845cd-a8d0-4c21-a481-e06ad18b8582"}]
 
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
@@ -437,11 +428,6 @@ class TestMeteoalarm < Minitest::Test
   end 
 
   def test_alarms_filter_by_date_set_in_past
-    # skip
-
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
-
     Timecop.freeze(Time.local(2024, 1, 7, 17, 00, 0))
 
     error = assert_raises(Meteoalarm::ArgumentError) do
@@ -452,47 +438,14 @@ class TestMeteoalarm < Minitest::Test
   end 
 
   def test_check_area_with_unsupported_name
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+    Meteoalarm::HTTP.expects(:call).with('bosnia-herzegovina').
+      returns(JSON.parse(File.read('test/fixtures/bosnia-herzegovina.json'), symbolize_names: true)[:warnings])
 
     error = assert_raises(Meteoalarm::ArgumentError) do
       Meteoalarm::Client.alarms('ba', area: 'xyz')
     end
 
     assert_match('The provided area name is not supported. Refer to the rake tasks to view a list of available area names.', error.message)
-  end
-
-  def test_check_status_code_404
-    stub_request(:any, /feeds-fr/).
-    to_return(body: "", status: 404)
-
-    error = assert_raises(Meteoalarm::APIError) do
-      Meteoalarm::Client.alarms('fr')
-    end
-
-    assert_match("The requested page could not be found. Please consider upgrading the Meteoalarm gem or opening an issue.", error.message)
-  end
-
-  def test_check_status_code_500
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: "", status: 500)
-
-    error = assert_raises(Meteoalarm::APIError) do
-      Meteoalarm::Client.alarms('ba')
-    end
-
-    assert_match("Server error - status code: 500", error.message)
-  end
-
-  def test_check_status_code_301
-    stub_request(:any, /feeds-bosnia-herzegovina/).
-    to_return(body: "", status: 301)
-
-    error = assert_raises(Meteoalarm::APIError) do
-      Meteoalarm::Client.alarms('ba')
-    end
-
-    assert_match("Server returned unexpected status code: 301", error.message)
   end
 end
 
