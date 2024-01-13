@@ -49,7 +49,7 @@ module Meteoalarm
       check_status_code(response.code)
 
       warnings = JSON.parse(response.body, symbolize_names: true)[:warnings]
-      reject_expired_warnings!(warnings) unless options[:expired]
+      reject_expired_warnings(warnings) unless options[:expired]
 
       if options[:latitude] && options[:longitude]
         warnings = check_warnings_in_coordinates(warnings, country, options[:latitude], options[:longitude])
@@ -58,6 +58,7 @@ module Meteoalarm
         check_area(country, options[:area]) if warnings == []
       end
 
+      warnings = future_alarms(warnings) if options[:future_alarms]
       warnings = currently_active_alarms(warnings) if options[:active_now]
       warnings = alarms_filter_by_date(warnings, options[:date]) if options[:date]
       
@@ -91,7 +92,7 @@ module Meteoalarm
       end
     end
 
-    def reject_expired_warnings!(warnings)
+    def reject_expired_warnings(warnings)
       warnings.reject! do |warning|
         Time.parse(warning.dig(:alert, :info, 0, :expires)) < Time.now
       end
@@ -163,6 +164,15 @@ module Meteoalarm
         expires_time = Time.parse(alert.dig(:alert, :info, 0, :expires))
     
         onset_time <= Time.now && expires_time > Time.now
+      end
+    end
+
+    def future_alarms(warnings) 
+      warnings.select do |alert|
+        onset_time = Time.parse(alert.dig(:alert, :info, 0, :onset))
+        expires_time = Time.parse(alert.dig(:alert, :info, 0, :expires))
+    
+        onset_time > Time.now
       end
     end
 

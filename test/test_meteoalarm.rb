@@ -270,6 +270,110 @@ class TestMeteoalarm < Minitest::Test
     assert_equal(expected, warnings)
   end
 
+  def test_future_alarms
+    # skip
+    expected = [{:alert=>
+                  {:identifier=>"2.49.0.0.70.0.BA.240106081136.40030908",
+                  :incidents=>"Alert",
+                  :info=>
+                    [{:area=>[{:areaDesc=>"Tuzla", :geocode=>[{:value=>"BA004", :valueName=>"EMMA_ID"}]}],
+                      :category=>["Met"],
+                      :certainty=>"Likely",
+                      :description=>"Min temperature up to -6°C.",
+                      :effective=>"2024-01-06T08:11:36+01:00",
+                      :event=>"Low-temperature Yellow Warning",
+                      :expires=>"2024-01-09T11:00:59+01:00",
+                      :headline=>"Low-temperature Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+                      :instruction=>
+                      "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+                      :language=>"en",
+                      :onset=>"2024-01-09T00:00:00+01:00",
+                      :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"6; low-temperature", :valueName=>"awareness_type"}],
+                      :responseType=>["Monitor"],
+                      :senderName=>"Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+                      :severity=>"Moderate",
+                      :urgency=>"Future",
+                      :web=>"http://www.fhmzbih.gov.ba/latinica/"},
+                    {:area=>[{:areaDesc=>"Tuzla", :geocode=>[{:value=>"BA004", :valueName=>"EMMA_ID"}]}],
+                      :category=>["Met"],
+                      :certainty=>"Likely",
+                      :description=>"Min temperatura oko -6 °C.",
+                      :effective=>"2024-01-06T08:11:36+01:00",
+                      :event=>"Niska temperatura žuto Upozorenje",
+                      :expires=>"2024-01-09T11:00:59+01:00",
+                      :headline=>"Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+                      :instruction=>
+                      "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+                      :language=>"bs",
+                      :onset=>"2024-01-09T00:00:00+01:00",
+                      :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"6; low-temperature", :valueName=>"awareness_type"}],
+                      :responseType=>["Monitor"],
+                      :senderName=>"Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+                      :severity=>"Moderate",
+                      :urgency=>"Future",
+                      :web=>"http://www.fhmzbih.gov.ba/latinica/"}],
+                  :msgType=>"Alert",
+                  :scope=>"Public",
+                  :sender=>"sinoptika@fhmzbih.gov.ba",
+                  :sent=>"2024-01-06T08:11:36+01:00",
+                  :status=>"Actual"},
+                :uuid=>"d47845cd-a8d0-4c21-a481-e06ad18b8582"},
+                {:alert=>
+                  {:identifier=>"2.49.0.0.70.0.BA.240107075519.75445725",
+                  :incidents=>"Alert",
+                  :info=>
+                    [{:area=>[{:areaDesc=>"Tuzla", :geocode=>[{:value=>"BA004", :valueName=>"EMMA_ID"}]}],
+                      :category=>["Met"],
+                      :certainty=>"Likely",
+                      :description=>"Min temperature up to -6°C.",
+                      :effective=>"2024-01-07T07:55:19+01:00",
+                      :event=>"Low-temperature Yellow Warning",
+                      :expires=>"2024-01-10T10:00:59+01:00",
+                      :headline=>"Low-temperature Yellow Warning for Bosnia and Herzegovina - region Tuzla",
+                      :instruction=>
+                      "Be aware that low air temperatures are expected. There are possible health risks among the vulnerable population, for example, the elderly and very young people and the homeless.",
+                      :language=>"en",
+                      :onset=>"2024-01-10T00:00:00+01:00",
+                      :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"6; low-temperature", :valueName=>"awareness_type"}],
+                      :responseType=>["Monitor"],
+                      :senderName=>"Hydrometeorological Institute of Federation of Bosnia and Herzegovina",
+                      :severity=>"Moderate",
+                      :urgency=>"Future",
+                      :web=>"http://www.fhmzbih.gov.ba/latinica/"},
+                    {:area=>[{:areaDesc=>"Tuzla", :geocode=>[{:value=>"BA004", :valueName=>"EMMA_ID"}]}],
+                      :category=>["Met"],
+                      :certainty=>"Likely",
+                      :description=>"Min temperatura oko -6 °C.",
+                      :effective=>"2024-01-07T07:55:19+01:00",
+                      :event=>"Niska temperatura žuto Upozorenje",
+                      :expires=>"2024-01-10T10:00:59+01:00",
+                      :headline=>"Niska temperatura žuto Upozorenje za Bosnu i Hercegovinu - region Tuzla",
+                      :instruction=>
+                      "Budite svjesni da se očekuju niske temperature zraka. Mogući su zdravstveni rizici među ugroženom populacijom, na primjer, starije i veoma mlade osobe i beskućnici.",
+                      :language=>"bs",
+                      :onset=>"2024-01-10T00:00:00+01:00",
+                      :parameter=>[{:value=>"2; yellow; Moderate", :valueName=>"awareness_level"}, {:value=>"6; low-temperature", :valueName=>"awareness_type"}],
+                      :responseType=>["Monitor"],
+                      :senderName=>"Federalni hidrometeorološki zavod Federacije Bosne i Hercegovine",
+                      :severity=>"Moderate",
+                      :urgency=>"Future",
+                      :web=>"http://www.fhmzbih.gov.ba/latinica/"}],
+                  :msgType=>"Alert",
+                  :scope=>"Public",
+                  :sender=>"sinoptika@fhmzbih.gov.ba",
+                  :sent=>"2024-01-07T07:55:19+01:00",
+                  :status=>"Actual"},
+                :uuid=>"b3a1e1d0-7e73-496a-b657-141eec73e5b7"}]
+
+    stub_request(:any, /feeds-bosnia-herzegovina/).
+    to_return(body: File.read('test/fixtures/bosnia-herzegovina.json'), status: 200)
+
+    Timecop.freeze(Time.local(2024, 1, 8, 17, 00, 0))
+
+    warnings = Meteoalarm::Client.alarms('ba', area: 'Tuzla', future_alarms: true)
+    assert_equal(expected, warnings)
+  end
+
   def test_alarms_filter_by_date
     # skip
     expected = [{:alert=>
