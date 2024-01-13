@@ -1,10 +1,12 @@
 # frozen_string_literal: true
-require 'net/http'
-require 'uri'
 require 'json'
+require 'net/http'
 require 'time'
-require_relative 'meteoalarm/version'
+require 'uri'
 require_relative 'meteoalarm/country_mapping'
+require_relative 'meteoalarm/http'
+require_relative 'meteoalarm/version'
+
 
 module Meteoalarm
   class Error < StandardError; end
@@ -12,8 +14,6 @@ module Meteoalarm
   class APIError < Error; end
 
   class Client
-    BASE_URL = 'https://feeds.meteoalarm.org/api/v1/warnings/'
-
     # Use this class to retrieve meteo alarms for a specific country.
     #
     # Example:
@@ -44,11 +44,7 @@ module Meteoalarm
     private
 
     def alarms(country, options = {})
-      endpoint = "#{ BASE_URL }feeds-#{ country }"
-      response = send_http_request(endpoint)
-      check_status_code(response.code)
-
-      warnings = JSON.parse(response.body, symbolize_names: true)[:warnings]
+      warnings = Meteoalarm::HTTP.call(country)
       reject_expired_warnings(warnings) unless options[:expired]
 
       if options[:latitude] && options[:longitude]
@@ -71,24 +67,6 @@ module Meteoalarm
       spec = JSON.parse(data)
       unless spec.find { |s| s["area"].downcase == area.downcase }  
         raise Meteoalarm::ArgumentError, 'The provided area name is not supported. Refer to the rake tasks to view a list of available area names.'
-      end
-    end
-
-    def send_http_request(endpoint)
-      uri = URI.parse(endpoint)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      request = Net::HTTP::Get.new(uri.path)
-      http.request(request)
-    end
-
-    def check_status_code(status_code)
-      if status_code == '404'
-        raise Meteoalarm::APIError, "The requested page could not be found. Please consider upgrading the Meteoalarm gem or opening an issue."
-      elsif status_code.to_i >= 500
-        raise Meteoalarm::APIError, "Server error - status code: #{status_code}"
-      elsif status_code.to_i != 200
-        raise Meteoalarm::APIError, "Server returned unexpected status code: #{status_code}"
       end
     end
 
@@ -170,7 +148,6 @@ module Meteoalarm
     def future_alarms(warnings) 
       warnings.select do |alert|
         onset_time = Time.parse(alert.dig(:alert, :info, 0, :onset))
-        expires_time = Time.parse(alert.dig(:alert, :info, 0, :expires))
     
         onset_time > Time.now
       end
