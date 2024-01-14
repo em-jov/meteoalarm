@@ -68,7 +68,7 @@ Meteoalarm::Client.alarms('FR', area: 'Paris', active_now: true)
 
 #### JSON format API response example
 
-```json
+```
 [{:alert=>                                                                           
    {:identifier=>"2.49.0.0.250.0.FR.20240114100246.345025",                          
     :incidents=>"Alert",                                                             
